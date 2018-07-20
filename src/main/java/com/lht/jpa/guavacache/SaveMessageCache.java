@@ -1,8 +1,5 @@
-package com.example.demo.Demo;
+package com.lht.jpa.guavacache;
 import java.util.Map;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 
 import com.google.common.cache.*;
