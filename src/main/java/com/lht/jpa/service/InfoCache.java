@@ -1,35 +1,26 @@
 package com.lht.jpa.service;
 
 import com.google.common.collect.Maps;
+import com.lht.jpa.cache.GuavaAbstractLoadingCache;
 
 import java.util.Map;
 
-public class InfoCache extends BaseGuavaCache<String,Map> {
+public class InfoCache extends GuavaAbstractLoadingCache<String, String> {
 
 
-    private  Map<String,String> cacheMap = Maps.newHashMap();
+    private static Map<String, String> cacheMap = Maps.newHashMap();
+
+    public InfoCache() {
+
+    }
+
 
     @Override
-    public void loadValueWhenStarted() {
+    protected String fetchData(String key) {
 
+        return cacheMap.get(key);
     }
 
-    @Override
-    protected Map<String, String> getValueWhenExpired(String key) throws Exception {
-
-        return cacheMap;
-    }
-
-    public void set(Map<String,String> map){
-        this.cacheMap=map;
-    }
-    public Map<String,String> getCacheMap(){
-        return cacheMap;
-    }
-
-    public static void main(String[] args) {
-        InfoCache infoCache = new InfoCache();
-        infoCache.getCache().put("device_1",Maps.newHashMap());
-    }
 
 }
+

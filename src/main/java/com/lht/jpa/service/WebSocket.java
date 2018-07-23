@@ -1,6 +1,7 @@
 package com.lht.jpa.service;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.OnClose;
@@ -9,11 +10,12 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
-import java.util.Map;
+import java.util.Date;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 @ServerEndpoint(value = "/websocket")
 @Component
+@Slf4j
 public class WebSocket {
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
     private static int onlineCount = 0;
@@ -24,6 +26,7 @@ public class WebSocket {
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
 
+    private InfoCache infoCache=new InfoCache();
 
 
     /**
@@ -59,19 +62,15 @@ public class WebSocket {
     public void onMessage(String message, Session session) {
         System.out.println("来自客户端的消息:" + message);
 
-
-        InfoCache baseGuavaCache=new InfoCache();
-
-
         try{
 
-            baseGuavaCache.getCacheMap().put("message",message);
-            baseGuavaCache.getCacheMap().put("time",System.currentTimeMillis()+"");
-//            baseGuavaCache.getValueWhenExpired(message);
-            Map s= baseGuavaCache.getValue("message");
+            infoCache.put("message",message);
+            infoCache.put("time", new Date(System.currentTimeMillis()).toString());
+            String messages=infoCache.getValue("message");
 
-            System.err.print(s);
+            System.err.print(messages);
         }catch (Exception e){
+            e.printStackTrace();
             System.out.print("获取cache异常");
         }
         //群发消息

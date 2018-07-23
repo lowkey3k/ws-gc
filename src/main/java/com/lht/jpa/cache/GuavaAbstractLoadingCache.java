@@ -29,11 +29,11 @@ public abstract class GuavaAbstractLoadingCache<K, V> {
 	private int maximumSize = 1000;					//最大缓存条数，子类在构造方法中调用setMaximumSize(int size)来更改
 	private int expireAfterWriteDuration = 10;		//数据存在时长，子类在构造方法中调用setExpireAfterWriteDuration(int duration)来更改
 	private TimeUnit timeUnit = TimeUnit.SECONDS;	//时间单位（秒）
-	private int expireAfterAccess;//当缓存项在指定的时间段内没有被读或写就会被回收
-	private int refreshAfterWrite;//当缓存项上一次更新操作之后的多久会被刷新。
+	private int expireAfterAccess=1;//当缓存项在指定的时间段内没有被读或写就会被回收
+	private int refreshAfterWrite=1;//当缓存项上一次更新操作之后的多久会被刷新。
 	private long highestSize=0;	//历史最高记录数
 
-	private LoadingCache<K, V> cache;
+	private  LoadingCache<K, V> cache;
 	
 	/**
 	 * 通过调用getCache().get(key)来获取数据 
