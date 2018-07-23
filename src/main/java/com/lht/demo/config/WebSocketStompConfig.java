@@ -1,4 +1,4 @@
-package com.lht.jpa.config;
+package com.lht.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

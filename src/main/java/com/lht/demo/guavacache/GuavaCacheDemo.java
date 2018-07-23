@@ -1,4 +1,4 @@
-package com.lht.jpa.guavacache;
+package com.lht.demo.guavacache;
 import java.util.Map;
 
 
@@ -7,7 +7,7 @@ import com.google.common.collect.Maps;
 
 
 
-public class SaveMessageCache {
+public class GuavaCacheDemo {
 
     /**
      * 谷歌LoadingCache缓存使用

@@ -1,8 +1,8 @@
-package com.lht.jpa.service;
+package com.lht.demo.service;
 
 import com.google.common.collect.Maps;
-import com.lht.jpa.cache.GuavaAbstractLoadingCache;
-
+import com.lht.demo.guavacache.GuavaAbstractLoadingCache;
+//import com.lht.demo.guavacache.*;
 import java.util.Map;
 
 public class InfoCache extends GuavaAbstractLoadingCache<String, String> {

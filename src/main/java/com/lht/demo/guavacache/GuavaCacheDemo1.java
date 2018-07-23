@@ -1,4 +1,4 @@
-package com.lht.jpa.guavacache;
+package com.lht.demo.guavacache;
 
 
 import com.google.common.base.Preconditions;
@@ -50,7 +50,7 @@ import java.util.concurrent.TimeUnit;
  * @param <V>
  */
 
-public class CacheDemo<K, V> {
+public class GuavaCacheDemo1<K, V> {
 
     /**
      * 缓存对象
@@ -92,10 +92,10 @@ public class CacheDemo<K, V> {
      */
     public static final ReferenceMethod DEFAULT_REFERENCE_METHOD = ReferenceMethod.DEFAULT;
 
-    public CacheDemo(CacheLoader<K, V> cacheLoader, Weigher<K, V> weigher, RemovalListener<K, V> removalListener,
-                       long maximumWeight, int maximumSize, long refreshTime, TimeUnit refreshTimeUnit, long expireTime,
-                       TimeUnit expireTimeUnit, ExpireMethod expireMethod, ReferenceMethod keyReferenceMethod,
-                       ReferenceMethod valueReferenceMethod) {
+    public GuavaCacheDemo1(CacheLoader<K, V> cacheLoader, Weigher<K, V> weigher, RemovalListener<K, V> removalListener,
+                           long maximumWeight, int maximumSize, long refreshTime, TimeUnit refreshTimeUnit, long expireTime,
+                           TimeUnit expireTimeUnit, ExpireMethod expireMethod, ReferenceMethod keyReferenceMethod,
+                           ReferenceMethod valueReferenceMethod) {
 
         Preconditions.checkNotNull(cacheLoader, "cache loader must not be null");
 
@@ -114,7 +114,7 @@ public class CacheDemo<K, V> {
                 expireTime, expireTimeUnit, expireMethod, keyReferenceMethod, valueReferenceMethod);
     }
 
-    public CacheDemo() {
+    public GuavaCacheDemo1() {
     }
 
     /**

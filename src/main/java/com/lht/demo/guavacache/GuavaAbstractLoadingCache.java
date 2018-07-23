@@ -1,4 +1,4 @@
-package com.lht.jpa.cache;
+package com.lht.demo.guavacache;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;

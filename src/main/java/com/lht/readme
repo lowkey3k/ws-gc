@@ -12,9 +12,9 @@ WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工�
    非常浪费资源（因为必须不停连接，或者 HTTP 连接始终打开）。
 
 
-3，本项目介绍：
+#3，本项目介绍：
       这是一个可以利用websocket实现消息分发，并统计在线人数，离线人数。并将消息存在在本地缓存中。
-4，运行介绍：
+#4，运行介绍：
       本地：http://localhost:8080/websocket.html.
       部分运行效果可以在控制台查看。
 5,redis
@@ -27,3 +27,6 @@ WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工�
     memcache是一套分布式的高速缓存系统，由LiveJournal的Brad Fitzpatrick开发，
     但目前被许多网站使用以提升网站的访问速度，尤其对于一些大型的、需要频繁访问
     数据库的网站访问速度提升效果十分显著(安装教程：https://blog.csdn.net/kangvcar/article/details/78591899)
+7,教程库
+   （1）https://www.yiibai.com/html/java
+   （2）并发编程网-ifeve.com

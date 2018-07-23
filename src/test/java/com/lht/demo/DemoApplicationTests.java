@@ -1,4 +1,4 @@
-package com.lht.jpa;
+package com.lht.demo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
