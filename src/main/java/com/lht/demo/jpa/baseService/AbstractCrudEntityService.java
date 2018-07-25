@@ -16,14 +16,13 @@
  *
  */
 
-package com.lht.demo.jpa.serviceSimple;
+package com.lht.demo.jpa.baseService;
 
 import com.google.common.collect.Lists;
 import com.lht.demo.jpa.baseDao.CrudDao;
+import com.lht.demo.jpa.baseDao.SimpleJpaCrudDao;
 import com.lht.demo.jpa.baseEntity.CrudEntity;
-import com.lht.demo.jpa.baseService.CrudService;
 import com.lht.demo.util.IDGenerator;
-import lombok.Data;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,17 +42,23 @@ import java.util.stream.Collectors;
  *
  * @author
  */
-@Data
 @Transactional(rollbackFor = Throwable.class)
 public abstract class AbstractCrudEntityService<E extends CrudEntity<PK>, PK extends Serializable>
-        implements CrudService<E, PK>, ApplicationContextAware {
+   implements CrudService<E, PK> {
 
-    protected ApplicationContext applicationContext;
 
-    @SuppressWarnings("unchecked")
+    protected CrudDao<E, PK> crudDao;
+
     public AbstractCrudEntityService() {
-        super();
     }
+
+
+
+    public CrudDao<E, PK> getDao() {
+        return this.crudDao;
+    }
+
+
 
     /**
      * 获取ID生成器,在insert的时候，如果ID为空,则调用生成器进行生成
@@ -65,7 +70,6 @@ public abstract class AbstractCrudEntityService<E extends CrudEntity<PK>, PK ext
     }
 
 
-    protected CrudDao<E, PK> crudDao;
     /**
      *
      * @param pk 主键
@@ -83,14 +87,8 @@ public abstract class AbstractCrudEntityService<E extends CrudEntity<PK>, PK ext
     }
 
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
 
-    public CrudDao<E, PK> getDao() {
-        return this.crudDao;
-    }
+
 
     @Override
     public List<E> getAll(){
@@ -161,10 +159,7 @@ public abstract class AbstractCrudEntityService<E extends CrudEntity<PK>, PK ext
         return getDao().insert(entity);
     }
 
-    @Override
-    public List<PK> insert(Collection<E> entities) {
-        return getDao().insert(entities);
-    }
+
 
 
     @Override

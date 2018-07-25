@@ -21,7 +21,6 @@ package com.lht.demo.jpa.baseEntity;
 /**
  * 通用实体,提供实体常用属性
  *
- * @author
  * @since 3.0
  */
 public interface CrudEntity<PK> extends Entity, PrimaryKeyBean<PK> {

@@ -23,11 +23,11 @@ public interface UpdateDao<E, PK> extends Dao {
      * @param entities
      * @return
      */
-    <S extends E> List<PK> update(Iterable<S> entities);
+//    <S extends E> List<PK> update(Iterable<S> entities);
 
     PK upsert(E e);
 
-    <S extends E> List<PK> upsert(Iterable<S> entities);
+//    <S extends E> List<PK> upsert(Iterable<S> entities);
 
     /**
      * 部分字段更新
@@ -35,7 +35,7 @@ public interface UpdateDao<E, PK> extends Dao {
      * @param e
      * @return
      */
-    PK patch(E e);
+//    PK patch(E e);
 
     /**
      * 部分字段更新(批量)
@@ -43,5 +43,5 @@ public interface UpdateDao<E, PK> extends Dao {
      * @param entities
      * @return
      */
-    <S extends E> List<PK> patch(Iterable<S> entities);
+//    <S extends E> List<PK> patch(Iterable<S> entities);
 }

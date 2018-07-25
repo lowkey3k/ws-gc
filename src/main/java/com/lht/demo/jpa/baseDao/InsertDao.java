@@ -29,7 +29,7 @@ public interface InsertDao<E, PK> extends Dao {
 
     PK insert(E e);
 
-    <S extends E> List<PK> insert(Iterable<S> entities);
+//    <S extends E> List<PK> insert(Iterable<S> entities);
 
     /**
      * 使用nativeSQL 插入数据. 不会更新hibernate session级别缓存.

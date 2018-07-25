@@ -10,12 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
-
-@EnableConfigurationProperties
-//@EnableJpaRepositories(basePackages = "com.lht.demo")
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class,scanBasePackages = "com.lht.demo.web.controller")
-@ComponentScan(value = {"com.lht.demo.jpa"})
-@EntityScan("com.lit.demo.jpa.baseEntity")
+//@EnableConfigurationProperties
+//@EnableJpaRepositories(basePackages = "com.lht.demo.dao")
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class,scanBasePackages = "com.lht.demo.webs")
+//@ComponentScan(basePackages = {"com.lht.demo.service","com.lht.demo.service.serviceImpl","com.lht.demo.jpa.baseDao","com.lht.demo.jpa.baseService"})
+//@EntityScan("com.lit.demo.jpa.baseEntity")
 //@EnableJpaRepositories(basePackages = "com.lht.demo.jpa.baseEntity")
 //@EnableAutoConfiguration
 public class DemoApplication {
