@@ -10,4 +10,5 @@ import org.springframework.stereotype.Service;
 public  class UserServiceImpl  extends AbstractCrudEntityService<User,Long> implements UserService {
 
 
+
 }

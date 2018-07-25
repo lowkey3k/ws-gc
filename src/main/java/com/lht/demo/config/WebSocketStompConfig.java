@@ -1,6 +1,5 @@
 package com.lht.demo.config;
 
-import com.lht.demo.jpa.baseDao.CrudDao;
 import com.lht.demo.redis.springboot_redis.redisImpl.CacheImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,12 +12,19 @@ public class WebSocketStompConfig {
 
         return new ServerEndpointExporter();
     }
+
     @Bean
     public CacheImpl cache(){
         return new CacheImpl();
     }
-    @Bean
+
+    /*@Bean
+    public UserService userService(){
+        return new UserServiceImpl();
+    }*/
+
+  /*  @Bean
     public CrudDao getCrudDao(){
   return  null;
-    }
+    }*/
 }
