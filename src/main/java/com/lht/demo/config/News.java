@@ -1,4 +1,4 @@
 package com.lht.demo.config;
 
-public class New {
+public class News {
 }
