@@ -1,26 +1,19 @@
 package com.lht.demo;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import java.awt.*;
 
 
-//@EnableConfigurationProperties
-//@EnableJpaRepositories(basePackages = "com.lht.demo.dao")
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class,scanBasePackages = "com.lht.demo.webs")
-//@ComponentScan(basePackages = {"com.lht.demo.service","com.lht.demo.service.serviceImpl","com.lht.demo.jpa.baseDao","com.lht.demo.jpa.baseService"})
-//@EntityScan("com.lit.demo.jpa.baseEntity")
-//@EnableJpaRepositories(basePackages = "com.lht.demo.jpa.baseEntity")
-//@EnableAutoConfiguration
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class,scanBasePackages = "com.lht.demo")
+
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
+		System.err.println("项目启动成功");
 	}
 }
 
