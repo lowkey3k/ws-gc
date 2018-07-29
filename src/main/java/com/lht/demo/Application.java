@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -13,11 +14,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * 文档：http://mp.baomidou.com<br>
  */
 @EnableTransactionManagement
-@SpringBootApplication
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class,scanBasePackages = "com.lht.demo.controller")
 @ComponentScan(basePackages = {
         "com.lht.demo.config",
         "com.lht.demo.controller",
-        "com.lht.demo.service"})
+        "com.lht.demo.service",
+        "com.lht.demo.mapper"})
 public class Application {
 
     protected final static Logger logger = LoggerFactory.getLogger(Application.class);
