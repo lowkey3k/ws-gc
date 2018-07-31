@@ -89,7 +89,7 @@
 			<artifactId>jedis</artifactId>
 			<version>2.1.0</version>
 		</dependency>
-		<!--spring date redis-->
+		<!--spring data redis-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
