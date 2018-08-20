@@ -1,8 +1,9 @@
-package com.lht.demo.redis.springboot_redis.redisImpl;
+package com.lht.demo.redis.redisImpl;
 
-import com.lht.demo.redis.springboot_redis.ICache;
+import com.lht.demo.redis.ICache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -18,7 +19,10 @@ import java.util.concurrent.TimeUnit;
 public class CacheImpl implements ICache {
 
     @Autowired
-    private RedisTemplate<String, String> redisTemplate;
+    private RedisTemplate redisTemplate;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
 
     @Override
@@ -84,22 +88,22 @@ public class CacheImpl implements ICache {
     }
 
     @Override
-    public void listRightPushList(String key, String value) {
+    public void listRightPushList(String key, Object value) {
         redisTemplate.opsForList().rightPush(key,value);
     }
 
     @Override
-    public String listRightPopList(String key) {
+    public Object listRightPopList(String key) {
         return redisTemplate.opsForList().rightPop(key);
     }
 
     @Override
-    public void listLeftPushList(String key, String value) {
+    public void listLeftPushList(String key, Object value) {
         redisTemplate.opsForList().leftPush(key,value);
     }
 
     @Override
-    public String listLeftPopList(String key) {
+    public Object listLeftPopList(String key) {
         return redisTemplate.opsForList().leftPop(key);
     }
 
@@ -109,7 +113,7 @@ public class CacheImpl implements ICache {
     }
 
     @Override
-    public List<String> listRangeList(String key, Long start, Long end) {
+    public List<Object> listRangeList(String key, Long start, Long end) {
         return redisTemplate.opsForList().range(key,start,end);
     }
 
@@ -119,12 +123,12 @@ public class CacheImpl implements ICache {
     }
 
     @Override
-    public String listIndexFromList(String key, long index) {
+    public Object listIndexFromList(String key, long index) {
         return redisTemplate.opsForList().index(key,index);
     }
 
     @Override
-    public void listSetValueToList(String key, long index, String value) {
+    public void listSetValueToList(String key, long index, Object value) {
         redisTemplate.opsForList().set(key,index,value);
     }
 
@@ -134,7 +138,7 @@ public class CacheImpl implements ICache {
     }
 
     @Override
-    public Long setAddSetMap(String key, String... values) {
+    public Long setAddSetMap(String key, Object... values) {
         return redisTemplate.opsForSet().add(key,values);
     }
 
@@ -144,7 +148,7 @@ public class CacheImpl implements ICache {
     }
 
     @Override
-    public Set<String> setGetMemberOfSetMap(String key) {
+    public Set<Object> setGetMemberOfSetMap(String key) {
         return redisTemplate.opsForSet().members(key);
     }
 
@@ -159,7 +163,7 @@ public class CacheImpl implements ICache {
     }
 
     @Override
-    public String stringGetStringByKey(String key) {
+    public Object stringGetStringByKey(String key) {
         return redisTemplate.opsForValue().get(key);
     }
 
@@ -184,7 +188,7 @@ public class CacheImpl implements ICache {
     }
 
     @Override
-    public String stringGetAndSet(String key, String value) {
+    public Object stringGetAndSet(String key, String value) {
         return redisTemplate.opsForValue().getAndSet(key,value);
     }
 

@@ -1,4 +1,4 @@
-package com.lht.demo.redis.springboot_redis;
+package com.lht.demo.redis;
 import java.util.Set;
 
 public interface ISetCache {
@@ -12,7 +12,7 @@ public interface ISetCache {
      * @param values
      * @return 被添加到集合中的新元素的数量，不包括被忽略的元素
      */
-    Long setAddSetMap(String key, String... values);
+    Long setAddSetMap(String key, Object... values);
 
     /**
      * 获取set集合的大小
@@ -32,7 +32,7 @@ public interface ISetCache {
      * @param key
      * @return
      */
-    Set<String> setGetMemberOfSetMap(String key);
+    Set<Object> setGetMemberOfSetMap(String key);
 
     /**
      * 检查元素是不是set集合中的

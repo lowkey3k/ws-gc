@@ -1,4 +1,4 @@
-package com.lht.demo.redis.springboot_redis;
+package com.lht.demo.redis;
 
 import java.util.List;
 import java.util.Map;

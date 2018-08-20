@@ -45,6 +45,9 @@ public class Main3  {
         //or
                 .reduce(0,Integer::sum);
 
+
+
+
         System.out.println( "Total points: " + totalPointsOfOpenTasks );
 
     }

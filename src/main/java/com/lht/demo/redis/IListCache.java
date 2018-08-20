@@ -1,4 +1,4 @@
-package com.lht.demo.redis.springboot_redis;
+package com.lht.demo.redis;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public interface IListCache {
      * @param key
      * @param value
      */
-    void listRightPushList(String key, String value);
+    void listRightPushList(String key, Object value);
 
     /**
      * 从右出栈
@@ -19,7 +19,7 @@ public interface IListCache {
      * @param key
      * @return
      */
-    String listRightPopList(String key);
+    Object listRightPopList(String key);
 
     /**
      * 从左向右存压栈
@@ -28,7 +28,7 @@ public interface IListCache {
      * @param key
      * @param value
      */
-    void listLeftPushList(String key, String value);
+    void listLeftPushList(String key, Object value);
 
     /**
      * 从左出栈
@@ -37,7 +37,7 @@ public interface IListCache {
      * @param key
      * @return
      */
-    String listLeftPopList(String key);
+    Object listLeftPopList(String key);
 
     /**
      * 集合list的长度
@@ -57,7 +57,7 @@ public interface IListCache {
      * @param end
      * @return
      */
-    List<String> listRangeList(String key, Long start, Long end);
+    List<Object> listRangeList(String key, Long start, Long end);
 
     /**
      * 移除key中值为value的i个,返回删除的个数；如果没有这个元素则返回0
@@ -78,7 +78,7 @@ public interface IListCache {
      * @param index
      * @return
      */
-    String listIndexFromList(String key, long index);
+    Object listIndexFromList(String key, long index);
 
     /**
      * 根据下标设置value
@@ -88,7 +88,7 @@ public interface IListCache {
      * @param index
      * @param value
      */
-    void listSetValueToList(String key, long index, String value);
+    void listSetValueToList(String key, long index, Object value);
 
     /**
      * 裁剪(删除), 删除 除了[start,end]以外的所有元素

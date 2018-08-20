@@ -16,6 +16,7 @@ public class Main {
         Collection collection=new ArrayList<>();
         List list=new ArrayList();
 
+
         List<String> al = Arrays.asList("a","b","c","d");
         for (String a: al) {
             Main.printValur(a);

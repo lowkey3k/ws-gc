@@ -1,4 +1,4 @@
-package com.lht.demo.redis.springboot_redis;
+package com.lht.demo.redis;
 
 public interface IStringCache {
 
@@ -21,7 +21,7 @@ public interface IStringCache {
      * @description
 
      */
-    String stringGetStringByKey(String key);
+    Object stringGetStringByKey(String key);
 
     /**
      * 获取存储在键上的字符串的子字符串
@@ -76,7 +76,7 @@ public interface IStringCache {
      * @description
 
      */
-    String stringGetAndSet(String key, String value);
+    Object stringGetAndSet(String key, String value);
 
     /**
      * 使用键和到期时间来设置值,时间单位默认为毫秒
