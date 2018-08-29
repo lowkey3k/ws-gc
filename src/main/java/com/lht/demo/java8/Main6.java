@@ -15,5 +15,7 @@ public class Main6 {
             return x;
         };
         function.apply(101);
+
+        Genera.UUID.generater();
     }
 }

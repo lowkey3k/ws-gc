@@ -32,6 +32,7 @@ public class CustomRealm extends AuthorizingRealm {
    //simulated DB:模拟数据库
     Map<String,String> map=new HashMap<>();
     {
+        //87510683a330b5f74475fd8c569bd653
         map.put("lihaitao","87510683a330b5f74475fd8c569bd653");
         map.put("role","admin");
         super.setName("customRealm");
@@ -49,6 +50,7 @@ public class CustomRealm extends AuthorizingRealm {
         Set<String> roles=getRolesByUserName(username);
         Set<String> permissons=getPermissionsByUserName(username);
         //Authorization:授权
+
         SimpleAuthorizationInfo simpleAuthorizationInfo=new SimpleAuthorizationInfo();
         simpleAuthorizationInfo.setStringPermissions(permissons);
         simpleAuthorizationInfo.setRoles(roles);
